@@ -1,15 +1,32 @@
 console.log("hello");
-let planTemplateURL = "https://api.spoonacular.com/mealplanner/public-templates?apiKey=3aab51ba2fc442daa3d8eb0041b0be76"
-let mealPlanTemplate = document.querySelector('#meal-plan-template');
+var saveButton = document.getElementById("save");
+function savePlan() {
+    // Save related form data as an object
+    var studentGrade = {
+      student: student.value,
+      grade: grade.value,
+      comment: comment.value.trim()
+    };
+    // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
+    localStorage.setItem("studentGrade", JSON.stringify(studentGrade));
+  }
+  
+  function renderPlan() {
+    // Use JSON.parse() to convert text to JavaScript object
+    var lastGrade = JSON.parse(localStorage.getItem("studentGrade"));
+    // Check if data is returned, if not exit out of the function
+    if (lastGrade !== null) {
+    document.getElementById("saved-name").innerHTML = lastGrade.student;
+    document.getElementById("saved-grade").innerHTML = lastGrade.grade;
+    document.getElementById("saved-comment").innerHTML = lastGrade.comment;
+    } else {
+      return;
+    }
+  }
 
-$.get(planTemplateURL)
-    .then(function(data){
-        console.log(data.templates[0]);
-    })
 
-let getPlanUrl = `https://api.spoonacular.com/mealplanner/templates/125?apiKey=3aab51ba2fc442daa3d8eb0041b0be76`;
-
-$.get(getPlanUrl)
-    .then(function(data){
-        console.log(data)
-    })
+saveButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    savePlan();
+    renderPlan();
+    });
