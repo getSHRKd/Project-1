@@ -66,31 +66,38 @@
             </form> <br>
             <!-- DROPDOWN W/ CUISINE & DIETARY RESTRICTIONS -->
             <div class="input-field col 4">
-              <h6>Select your favorite cuisines, and any dietary restrictions to be accommodated.</h6>
-              <select multiple>
-                <optgroup label="Cuisines">
-                  <option value="" disabled selected>Choose as many as you'd like here!</option>
-                  <option>African</option>
-                  <option>American</option>
-                  <option>Chinese</option>
-                  <option>European</option>
-                  <option>Indian</option>
-                  <option>Italian</option>
-                  <option>Japanese</option>
-                  <option>Jewish</option>
-                  <option>Korean</option>
-                  <option value="2">Latin American</option>
-                  <option value="1">Mediterranean</option>
-                  <option value="2">Mexican</option>
-                  <option value="1">Spanish</option>
-                  <option value="2">Thai</option>
-                </optgroup>
-                <optgroup label="Dietary Restrictions">
-                  <option value="3">Gluten Free</option>
-                  <option value="4">Vegan</option>
-                  <option value="4">ETC</option>
-                </optgroup>
-              </select>
+              <h6>Select your favorite cuisines below.</h6>
+            <select multiple class="cuisineChoices">
+              <optgroup label="Cuisines">
+                <option value="" disabled selected>Choose as many as you'd like here!</option>
+                <option value="african">African</option>
+                <option value="american">American</option>
+                <option value="chinese">Chinese</option>
+                <option value="european">European</option>
+                <option value="indian">Indian</option>
+                <option value="italian">Italian</option>
+                <option value="japanese">Japanese</option>
+                <option value="jewish">Jewish</option>
+                <option value="korean">Korean</option>
+                <option value="latinamerican">Latin American</option>
+                <option value="mediterranean">Mediterranean</option>
+                <option value="mexican">Mexican</option>
+                <option value="spanish">Spanish</option>
+                <option value="thai">Thai</option>
+              </optgroup>
+            </select>
+            <h6>Select any dietary restrictions to be accommodated below.</h6>
+            <select multiple class="dietChoices">
+              <optgroup label="Dietary Restrictions">
+                <option value="" disabled selected>Choose only one here!</option>
+                <option value="glutenFree">Gluten Free</option>
+                <option value="ketogenic">Ketogenic</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="pescetarian">Pescetarian</option>
+                <option value="paleo">Paleo</option>
+              </optgroup>
+            </select>
             </div>
         </div> <br><br><br>
 
