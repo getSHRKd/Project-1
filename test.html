@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>In Or Out Meal Planner</title>
+    </head>
+    <body>
+
+    <header>
+      <nav class="nav-extended">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo"><i class="material-icons left">ramen_dining</i><i class="material-icons right">fastfood</i>In or Out?</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">Search Recipes & Restaurants</a></li>
+            <li><a href="#">Saved Meals</a></li>
+            <li><a href="#">Weekly Meal Planner</a></li>
+          </ul>
+        </div>
+        <div class="nav-content">
+          <a><span class="nav-text">A Weekly Meal Planner</span>
+          </a>
+      </div>
+    </header>
+    <main>
+        <div class="container">
+            <!-- DESCRIPTION -->
+            <p class="flow-text center">Find the perfect meal for every occasion, whether it's cooking at home or dining out. Then, use our planner to schedule your meals for the week.</p>
+        </div>
+
+        <div id="questionnaire" class="container">
+          <h2 class="center">Search for Recipes</h2>
+            <!-- RADIO CHECKLIST -->
+            <form action="#">
+                <h6>Eating in or out?</h6>
+                  <label for="home">
+                    <input id="home" name="inorout" type="radio" />
+                    <span>Cooking at Home</span>
+                  </label><br>
+                  <label for="restaurant">
+                    <input id="restaurant" name="inorout" type="radio" />
+                    <span>Let's Go Out</span>
+                  </label>
+            </form> <br>
+
+            
+
+            <!-- 2 SEARCH BARS -->
+            <form>
+                <h6>Search for recipes to cook at home...</h6>
+                <div class="input-field">
+                  <input id="search" type="search" placeholder="            Search keywords..." required>
+                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                  <i class="material-icons">close</i>
+                </div>
+            </form>
+            <form>
+                <h6>Or find the perfect restaurant...</h6>
+                <div class="input-field">
+                  <input id="search" type="search" placeholder="            Search keywords..." required>
+                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                  <i class="material-icons">close</i>
+                </div>
+            </form> <br>
+            <!-- DROPDOWN W/ CUISINE & DIETARY RESTRICTIONS -->
+            <div class="input-field col 4">
+              <h6>Select your favorite cuisines, and any dietary restrictions to be accommodated.</h6>
+              <select multiple>
+                <optgroup label="Cuisines">
+                  <option value="" disabled selected>Choose as many as you'd like here!</option>
+                  <option value="1">African</option>
+                  <option value="2">American</option>
+                  <option value="1">Chinese</option>
+                  <option value="2">European</option>
+                  <option value="1">Indian</option>
+                  <option value="2">Italian</option>
+                  <option value="1">Japanese</option>
+                  <option value="2">Jewish</option>
+                  <option value="1">Korean</option>
+                  <option value="2">Latin American</option>
+                  <option value="1">Mediterranean</option>
+                  <option value="2">Mexican</option>
+                  <option value="1">Spanish</option>
+                  <option value="2">Thai</option>
+                </optgroup>
+                <optgroup label="Dietary Restrictions">
+                  <option value="3">Gluten Free</option>
+                  <option value="4">Vegan</option>
+                  <option value="4">ETC</option>
+                </optgroup>
+              </select>
+            </div>
+        </div> <br><br><br>
+
+
+
+<!-- WEEKLY PLANNER -->
+        <h2 class="center">Meal Planner</h2>
+        <br>
+        <table id="data-table" class="container highlight centered responsive-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Monday</th>
+              <th>Tuesday</th>
+              <th>Wednesday</th>
+              <th>Thursday</th>
+              <th>Friday</th>
+              <th>Saturday</th>
+              <th>Sunday</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Breakfast</th>
+              <td><div id='editable' contenteditable='true'></div></td>
+              <td><div id='editable' contenteditable='true'></div></td>
+              <td><div id='editable' contenteditable='true'></div></td>
+              <td><div id='editable' contenteditable='true'></div></td>
+              <td><div id='editable' contenteditable='true'></div></td>
+              <td><div id='editable' contenteditable='true'></div></td>
+              <td><div id='editable' contenteditable='true'></div></td>
+
+            </tr>
+            <tr>
+              <th>Lunch</th>
+              <td><div id='editable' contenteditable='true'></div></td>
+              <td><div id='editable' contenteditable='true'></div></td>
+              <td><div id='editable' contenteditable='true'></div></td>
+              <td><div id='editable' contenteditable='true'></div></td>
+              <td><div id='editable' contenteditable='true'></div></td>
+              <td><div id='editable' contenteditable='true'></div></td>
+              <td><div id='editable' contenteditable='true'></div></td>
+              <td><div id='editable' contenteditable='true'></div></td>
+            
+            </tr>
+            <tr>
+              <th>Dinner</th>
+              <td><div id='editable' contenteditable='true'></div></td>
+              <td><div id='editable' contenteditable='true'></div></td>
+              <td><div id='editable' contenteditable='true'></div></td>
+              <td><div id='editable' contenteditable='true'></div></td>
+              <td><div id='editable' contenteditable='true'></div></td>
+              <td><div id='editable' contenteditable='true'></div></td>
+              <td><div id='editable' contenteditable='true'></div></td>
+            </tr>
+            <button id="save" class="saveContent">SAVE</button>
+          </tbody>
+        </table>
+
+    </main>
+
+    <div style="height:500px"></div>
+
+
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src= "script.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('select').formSelect();
+      });
+      M.AutoInit()
+      $(".dropdown-trigger").dropdown();
+      $(".button-collapse").sideNav();
+    </script>
+  </body>
+</html>
