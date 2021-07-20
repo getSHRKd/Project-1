@@ -1,0 +1,9 @@
+.recipePhoto {
+    height: 80px;
+}
+.recipeInfo {
+    display: flex;
+}
+.recipeInfo p {
+    margin: 0 1em;
+}

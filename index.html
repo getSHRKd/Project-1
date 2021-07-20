@@ -5,7 +5,7 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+      <link rel="stylesheet" href="style.css">
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <title>In Or Out Meal Planner</title>
@@ -78,8 +78,9 @@
             </div>
               <!-- Restaurants Displayed Below -->
             <section>
-              <div class="container"></div>
-                <div class="row col s12" id="restaurant-list"></div>
+              <!-- <div class="container"></div> -->
+                <div class="row col s12" id="recipeDisplay"></div>
+                
             </section>
            <br>
 
@@ -186,16 +187,16 @@
 
     <script src="spoonacular.js"></script>
     <script>
-      $(document).ready(function(){
-        $('select').formSelect();
-      });
-      M.AutoInit()
-      $(".dropdown-trigger").dropdown();
-      document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.chips');
-      var instances = M.Chips.init(elems, options);
-      });
-      var instance = M.Chips.getInstance(elem);
+      // $(document).ready(function(){
+      //   $('select').formSelect();
+      // });
+      // M.AutoInit()
+      // $(".dropdown-trigger").dropdown();
+      // document.addEventListener('DOMContentLoaded', function() {
+      // var elems = document.querySelectorAll('.chips');
+      // var instances = M.Chips.init(elems, options);
+      // });
+      // var instance = M.Chips.getInstance(elem);
     </script>
   </body>
 </html>

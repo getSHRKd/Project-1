@@ -1,3 +1,9 @@
+$(document).ready(function(){
+    $('select').formSelect();
+  });
+  M.AutoInit()
+  $(".dropdown-trigger").dropdown();
+
 let apiKey = '3aab51ba2fc442daa3d8eb0041b0be76';
 
 $("#recipeButton").click(function () {
@@ -30,5 +36,19 @@ function getRecipeDetails(recipeId) {
     })
         .then(function (result) {
             console.log(result)
+            let recipeDiv = $('#recipeDisplay');
+            let recipeTitle = $('<h5>');
+            let recipeImage = $('<img class="recipePhoto">');
+            let recipeSummary = $('<p>');
+            let recipeURL = $('<a>');
+            let recipeInfo = $("<div class='recipeInfo'>");
+            recipeInfo.append(recipeImage, recipeSummary);
+            recipeTitle.text(result.title);
+            recipeImage.attr('src', result.image);
+            recipeSummary.html(result.summary);
+            recipeURL.append(recipeTitle);
+            recipeURL.attr('href', result.sourceUrl);
+            recipeURL.attr('target', '_blank');
+            recipeDiv.append(recipeURL, recipeInfo);
         })
 }
