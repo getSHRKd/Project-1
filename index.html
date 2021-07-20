@@ -1,201 +1,230 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<html>
 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <title>In Or Out Meal Planner</title>
-    </head>
-    <body>
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>In Or Out Meal Planner</title>
+</head>
 
-    <header>
-      <nav class="nav-extended">
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo"><i class="material-icons left">ramen_dining</i><i class="material-icons right">fastfood</i>In or Out?</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="#">Search Recipes & Restaurants</a></li>
-            <li><a href="#">Saved Meals</a></li>
-            <li><a href="#">Weekly Meal Planner</a></li>
-          </ul>
-        </div>
-        <div class="nav-content">
-          <a><span class="nav-text">A Weekly Meal Planner</span>
-          </a>
+<body>
+
+  <header>
+    <nav class="nav-extended">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo"><i class="material-icons left">ramen_dining</i><i
+            class="material-icons right">fastfood</i>In or Out?</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="#">Search Recipes & Restaurants</a></li>
+          <li><a href="#">Saved Meals</a></li>
+          <li><a href="#">Weekly Meal Planner</a></li>
+        </ul>
       </div>
-    </header>
-    <main>
-        <div class="container">
-            <!-- DESCRIPTION -->
-            <p class="flow-text center">Find the perfect meal for every occasion, whether it's cooking at home or dining out. Then, use our planner to schedule your meals for the week.</p>
-        </div>
-
-        <div id="questionnaire" class="container">
-          <h2 class="center">Search for Recipes</h2>
-            <!-- RADIO CHECKLIST -->
-            <form action="#">
-                <h6>Eating in or out?</h6>
-                  <label for="home">
-                    <input id="home" name="inorout" type="radio" />
-                    <span>Cooking at Home</span>
-                  </label><br>
-                  <label for="restaurant">
-                    <input id="restaurant" name="inorout" type="radio" />
-                    <span>Let's Go Out</span>
-                  </label>
-            </form> <br>
-            <!-- 2 SEARCH BARS -->
-            <form>
-              <h6>Search for recipes to cook at home...</h6>
-              <div class="input-field">
-                <input id="searchRecipe" type="search" placeholder="            Search keywords..." required>
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
-              </div>
-              <a class="waves-effect waves-light btn" id="recipeButton">Search</a>
-            </form>
-
-            <form id="searchForm">
-                <h6>Or find a restaurant near you...</h6>
-                <div class="input-field">
-                  <input id="search searchCity" type="search" placeholder="            Search by city..." required>
-                  <label class="label-icon " for="search"><i class="material-icons">search</i></label>
-                  <i class="material-icons">close</i>
-                </div>
-            </form>
-
-            <div class="row">
-              <form action="" class="col s12">
-                <div class="input-field col s6">
-                  <input id="city-input" type="text" class="validate">
-                  <label for="city-input">Enter a city to find a restaurant near you!</label>
-                </div>
-              </form>
-      
-            </div>
-              <!-- Restaurants Displayed Below -->
-            <section>
-              <div class="container"></div>
-                <div class="row col s12" id="restaurant-list"></div>
-            </section>
-           <br>
-
-
-
-
-
-            <!-- DROPDOWN W/ CUISINE & DIETARY RESTRICTIONS -->
-            <div class="input-field col 4">
-              <h6>Select your favorite cuisines below.</h6>
-            <select multiple class="cuisineChoices">
-              <optgroup label="Cuisines">
-                <option value="" disabled selected>Choose as many as you'd like here!</option>
-                <option value="african">African</option>
-                <option value="american">American</option>
-                <option value="chinese">Chinese</option>
-                <option value="european">European</option>
-                <option value="indian">Indian</option>
-                <option value="italian">Italian</option>
-                <option value="japanese">Japanese</option>
-                <option value="jewish">Jewish</option>
-                <option value="korean">Korean</option>
-                <option value="latinamerican">Latin American</option>
-                <option value="mediterranean">Mediterranean</option>
-                <option value="mexican">Mexican</option>
-                <option value="spanish">Spanish</option>
-                <option value="thai">Thai</option>
-              </optgroup>
-            </select>
-            <h6>Select any dietary restrictions to be accommodated below.</h6>
-            <select multiple class="dietChoices">
-              <optgroup label="Dietary Restrictions">
-                <option value="" disabled selected>Choose only one here!</option>
-                <option value="glutenFree">Gluten Free</option>
-                <option value="ketogenic">Ketogenic</option>
-                <option value="vegetarian">Vegetarian</option>
-                <option value="vegan">Vegan</option>
-                <option value="pescetarian">Pescetarian</option>
-                <option value="paleo">Paleo</option>
-              </optgroup>
-            </select>
-            </div>
-        </div> <br><br><br>
-
-
-            <!-- Default with no input (automatically generated)  -->
-        <div class="container center">
-        <div class="chips chips-placeholders"><h6>Enter your favorite cuisines for your recipe here! Cuisine options: African, American, Chinese, European, Indian, Italian, Japanese, Jewish, Korean</h6>Search here...</div>
-        <!-- Customizable input  -->
+      <div class="nav-content">
+        <a><span class="nav-text">A Weekly Meal Planner</span>
+        </a>
       </div>
+  </header>
+  <main>
+    <div class="container">
+      <!-- DESCRIPTION -->
+      <p class="flow-text center">Find the perfect meal for every occasion, whether it's cooking at home or dining out.
+        Then, use our planner to schedule your meals for the week.</p>
+    </div>
+
+    <div id="questionnaire" class="container">
+      <h2 class="center">Search for Recipes</h2>
+      <!-- RADIO CHECKLIST -->
+      <form action="#">
+        <h6>Eating in or out?</h6>
+        <label for="home">
+          <input id="home" name="inorout" type="radio" />
+          <span>Cooking at Home</span>
+        </label><br>
+        <label for="restaurant">
+          <input id="restaurant" name="inorout" type="radio" />
+          <span>Let's Go Out</span>
+        </label>
+      </form> <br>
+      <!-- 2 SEARCH BARS -->
+      <form>
+        <h6>Search for recipes to cook at home...</h6>
+        <div class="input-field">
+          <input id="searchRecipe" type="search" placeholder="            Search keywords..." required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+        <a class="waves-effect waves-light btn" id="recipeButton">Search</a>
+        <a class="waves-effect waves-light btn addToMealPlan" >Add To Meal Plan</a>
+      </form>
+
+      <form id="searchForm">
+        <h6>Or find a restaurant near you...</h6>
+        <div class="input-field">
+          <input id="search searchCity" type="search" placeholder="            Search by city..." required>
+          <label class="label-icon " for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+
+      <div class="row">
+        <form action="" class="col s12">
+          <div class="input-field col s6">
+            <input id="city-input" type="text" class="validate">
+            <label for="city-input">Enter a city to find a restaurant near you!</label>
+          </div>
+        </form>
+
+      </div>
+      <!-- Restaurants Displayed Below -->
+      <section>
+        <!-- <div class="container"></div> -->
+        <div class="row col s12" id="recipeDisplay"></div>
+
+      </section>
+      <br>
 
 
-   
 
 
-<!-- WEEKLY PLANNER -->
-        <h2 class="center">Meal Planner</h2>
-        <br>
-        <table class="container highlight centered responsive-table">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Monday</th>
-              <th>Tuesday</th>
-              <th>Wednesday</th>
-              <th>Thursday</th>
-              <th>Friday</th>
-              <th>Saturday</th>
-              <th>Sunday</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>Breakfast</th>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <th>Lunch</th>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <th>Dinner</th>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
 
-    </main>
+      <!-- DROPDOWN W/ CUISINE & DIETARY RESTRICTIONS -->
+      <div class="input-field col 4">
+        <h6>Select your favorite cuisines below.</h6>
+        <select multiple class="cuisineChoices">
+          <optgroup label="Cuisines">
+            <option value="" disabled selected>Choose as many as you'd like here!</option>
+            <option value="african">African</option>
+            <option value="american">American</option>
+            <option value="chinese">Chinese</option>
+            <option value="european">European</option>
+            <option value="indian">Indian</option>
+            <option value="italian">Italian</option>
+            <option value="japanese">Japanese</option>
+            <option value="jewish">Jewish</option>
+            <option value="korean">Korean</option>
+            <option value="latinamerican">Latin American</option>
+            <option value="mediterranean">Mediterranean</option>
+            <option value="mexican">Mexican</option>
+            <option value="spanish">Spanish</option>
+            <option value="thai">Thai</option>
+          </optgroup>
+        </select>
+        <h6>Select any dietary restrictions to be accommodated below.</h6>
+        <select multiple class="dietChoices">
+          <optgroup label="Dietary Restrictions">
+            <option value="" disabled selected>Choose only one here!</option>
+            <option value="glutenFree">Gluten Free</option>
+            <option value="ketogenic">Ketogenic</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="vegan">Vegan</option>
+            <option value="pescetarian">Pescetarian</option>
+            <option value="paleo">Paleo</option>
+          </optgroup>
+        </select>
+      </div>
+    </div> <br><br><br>
 
-    <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <script src="scriptHD.js"></script>
+    <!-- Default with no input (automatically generated)  -->
+    <div class="container center">
+      <div class="chips chips-placeholders">
+        <h6>Enter your favorite cuisines for your recipe here! Cuisine options: African, American, Chinese, European,
+          Indian, Italian, Japanese, Jewish, Korean</h6>Search here...
+      </div>
+      <!-- Customizable input  -->
 
-      <!-- // var instances = M.Chips.init(elems, options);
+    </div>
+
+
+
+
+
+    <!-- WEEKLY PLANNER -->
+    <h2 class="center">Meal Planner</h2>
+    <br>
+    <table class="container highlight centered responsive-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Monday</th>
+          <th>Tuesday</th>
+          <th>Wednesday</th>
+          <th>Thursday</th>
+          <th>Friday</th>
+          <th>Saturday</th>
+          <th>Sunday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Breakfast</th>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>Lunch</th>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>Dinner</th>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>Add to Meal Plan</h4>
+        <p>recipe name</p>
+        <button class="day waves-effect waves-teal btn-small" data-day="Sunday">Sunday</button>
+        <button class="day waves-effect waves-teal btn-small">Monday</button>
+        <button class="day waves-effect waves-teal btn-small">Tuesday</button>
+        <button class="day waves-effect waves-teal btn-small">Wednesday</button>
+        <button class="day waves-effect waves-teal btn-small">Thursday</button>
+        <button class="day waves-effect waves-teal btn-small">Friday</button>
+        <button class="day waves-effect waves-teal btn-small">Saturday</button>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-red red btn-small">Agree</a>
+      </div>
+    </div>
+  </main>
+
+  <!--JavaScript at end of body for optimized loading-->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script src="scriptHD.js"></script>
+
+  <!-- // var instances = M.Chips.init(elems, options);
       // });
       // var instance = M.Chips.getInstance(elem); -->
-    
-      <!-- <script src="script.js"></script> -->
 
-    <script src="spoonacular.js"></script>
-    <script>
-      $(document).ready(function(){
-        $('select').formSelect();
-      });
-      M.AutoInit()
-      $(".dropdown-trigger").dropdown();
-      document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.chips');
-      var instances = M.Chips.init(elems, options);
-      });
-      var instance = M.Chips.getInstance(elem);
-    </script>
-  </body>
+  <!-- <script src="script.js"></script> -->
+
+  <script src="spoonacular.js"></script>
+  <script>
+      // $(document).ready(function(){
+      //   $('select').formSelect();
+      // });
+      // M.AutoInit()
+      // $(".dropdown-trigger").dropdown();
+      // document.addEventListener('DOMContentLoaded', function() {
+      // var elems = document.querySelectorAll('.chips');
+      // var instances = M.Chips.init(elems, options);
+      // });
+      // var instance = M.Chips.getInstance(elem);
+  </script>
+</body>
+
 </html>

@@ -1,5 +1,19 @@
-let apiKey = '3aab51ba2fc442daa3d8eb0041b0be76';
+$(document).ready(function(){
+    $('select').formSelect();
 
+// read mealPlan from local storage
+// if mealPlan == null
+// create mealPlan array [{}, {}, {},{}, {},{},{}]
+
+  });
+  M.AutoInit()
+  $(".dropdown-trigger").dropdown();
+
+  $('.modal').modal();
+
+// let apiKey = '3aab51ba2fc442daa3d8eb0041b0be76'; // Ronald
+let apiKey = 'e0ab4916329e48aebf5b04da43be417f'; // Rich
+let recipe;
 $("#recipeButton").click(function () {
     let query = $('#searchRecipe').val();
     let checkedCuisines = M.FormSelect.getInstance(document.querySelector(".cuisineChoices")).getSelectedValues();
@@ -21,6 +35,32 @@ $("#recipeButton").click(function () {
     })
 });
 
+$("main").on("click", ".addToMealPlan", function(event){
+    event.preventDefault();
+    event.stopPropagation();
+    console.log("ADD TO MEAL PLAN")
+    let button = $(event.target);
+    recipe = button.data("recipe")
+    console.log(recipe);
+    $('.modal').modal('open');
+});
+
+$(".day").on("click", function(event) {
+    console.log("CLICKED DAY")
+    let button = $(event.target);
+    let day = button.data("day")
+    addRecipeToMealPlanner(recipe, day);
+    $('.modal').modal('close');
+})
+
+function addRecipeToMealPlanner(recipe, day) {
+    console.log(day, recipe.title)
+
+    // add to local storage
+    // day wil be the index of the day of the week (starting at 0 for Sunday)
+    // mealPlan[day] = recipe
+}
+
 function getRecipeDetails(recipeId) {
     let recipeEndpoint = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${apiKey}`
     $.ajax({
@@ -30,5 +70,26 @@ function getRecipeDetails(recipeId) {
     })
         .then(function (result) {
             console.log(result)
+            let recipeDiv = $('#recipeDisplay');
+            let recipeTitle = $('<h5>');
+            let recipeImage = $('<img class="recipePhoto">');
+            let recipeSummary = $('<p>');
+            let recipeName = $('<div  class="recipeNameAndButton">')
+            let recipeURL = $('<a>');
+            let recipeInfo = $("<div class='recipeInfo'>");
+            let addToMealPlannerButton = $("<button class='addToMealPlan'>");
+            addToMealPlannerButton.text("Add to Meal Plan")
+            .addClass("waves-effect waves-light btn")
+            .data("recipe", result);
+
+            recipeInfo.append(recipeImage, recipeSummary);
+            recipeTitle.text(result.title);
+            recipeImage.attr('src', result.image);
+            recipeSummary.html(result.summary);
+            recipeURL.append(recipeTitle);
+            recipeURL.attr('href', result.sourceUrl);
+            recipeURL.attr('target', '_blank');
+            recipeName.append(recipeURL, addToMealPlannerButton)
+            recipeDiv.append(recipeName, recipeInfo);
         })
 }

@@ -1,0 +1,15 @@
+.recipePhoto {
+    height: 80px;
+}
+.recipeInfo {
+    display: flex;
+}
+.recipeInfo p {
+    margin: 0 1em;
+}
+.recipeNameAndButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1em;
+}
