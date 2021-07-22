@@ -1,18 +1,15 @@
 $(document).ready(function(){
     $('select').formSelect();
 
-// read mealPlan from local storage
-// if mealPlan == null
-// create mealPlan array [{}, {}, {},{}, {},{},{}]
-
   });
   M.AutoInit()
   $(".dropdown-trigger").dropdown();
 
   $('.modal').modal();
 
-// let apiKey = '3aab51ba2fc442daa3d8eb0041b0be76'; // Ronald
-let apiKey = 'e0ab4916329e48aebf5b04da43be417f'; // Rich
+ let apiKey = '3aab51ba2fc442daa3d8eb0041b0be76'; // Ronald
+/* let apiKey = 'e0ab4916329e48aebf5b04da43be417f';  */// Rich
+/* let apiKey = 'dfba0426536b466aaa28376e4b407fe8'; // Scott */
 let recipe;
 $("#recipeButton").click(function () {
     let query = $('#searchRecipe').val();
@@ -54,12 +51,37 @@ $(".day").on("click", function(event) {
 })
 
 function addRecipeToMealPlanner(recipe, day) {
-    console.log(day, recipe.title)
-
-    // add to local storage
-    // day wil be the index of the day of the week (starting at 0 for Sunday)
-    // mealPlan[day] = recipe
+    console.log(day, recipe.image)
+    localStorage.setItem(day, recipe.title);
+    localStorage.setItem(day + 'image', recipe.image);
+    localStorage.setItem(day + "recipeUrl", recipe.sourceUrl);
+    getMealsFromLocalStorage()
 }
+
+function getMealsFromLocalStorage() {
+    console.log("GETTING ITEMS");
+
+    for (let dayNumber = 0; dayNumber < 7; dayNumber++) {
+        $('#0').text(localStorage.getItem(dayNumber));
+        let recipeLink = $('<a>');
+        recipeLink.attr('href', localStorage.getItem(dayNumber + "recipeUrl"));
+        recipeLink.text('Click here for recipe');
+        recipeLink.attr('target', '_blank');
+        $(`#${dayNumber}recipeUrl`).empty().append(recipeLink);
+        let recipeImage = $('<img class="recipePhoto">');
+        recipeImage.attr('src', localStorage.getItem(dayNumber + "image"));
+        $(`#${dayNumber}image`).append(recipeImage);
+    }
+
+   /*  $('#0').text(localStorage.getItem("0"));
+    $('#1').text(localStorage.getItem("1"));
+    $('#2').text(localStorage.getItem("2"));
+    $('#3').text(localStorage.getItem("3"));
+    $('#4').text(localStorage.getItem("4"));
+    $('#5').text(localStorage.getItem("5"));
+    $('#6').text(localStorage.getItem("6"));  */
+}
+getMealsFromLocalStorage();
 
 function getRecipeDetails(recipeId) {
     let recipeEndpoint = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${apiKey}`

@@ -20,15 +20,15 @@
         <a href="#" class="brand-logo"><i class="material-icons left">ramen_dining</i><i
             class="material-icons right">fastfood</i>In or Out?</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#">Search Recipes & Restaurants</a></li>
-          <li><a href="#">Saved Meals</a></li>
-          <li><a href="#">Weekly Meal Planner</a></li>
+          <li><a href="#questionnaire">Search Recipes & Restaurants</a></li>
+          <li><a href="#mealPlanner">Weekly Meal Planner</a></li>
         </ul>
       </div>
       <div class="nav-content">
         <a><span class="nav-text">A Weekly Meal Planner</span>
         </a>
       </div>
+      </nav>
   </header>
   <main>
     <div class="container">
@@ -36,6 +36,55 @@
       <p class="flow-text center">Find the perfect meal for every occasion, whether it's cooking at home or dining out.
         Then, use our planner to schedule your meals for the week.</p>
     </div>
+    <!-- WEEKLY PLANNER -->
+    <h2 class="center" id="mealPlanner">Meal Planner</h2>
+    <br>
+    <table class="container highlight centered responsive-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Monday</th>
+          <th>Tuesday</th>
+          <th>Wednesday</th>
+          <th>Thursday</th>
+          <th>Friday</th>
+          <th>Saturday</th>
+          <th>Sunday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Meal</th>
+          <td id="0"></td>
+          <td id="1"></td>
+          <td id="2"></td>
+          <td id="3"></td>
+          <td id="4"></td>
+          <td id="5"></td>
+          <td id="6"></td>
+        </tr>
+        <tr>
+          <th>Image</th>
+          <td id="0image"></td>
+          <td id="1image"></td>
+          <td id="2image"></td>
+          <td id="3image"></td>
+          <td id="4image"></td>
+          <td id="5image"></td>
+          <td id="6image"></td>
+        </tr>
+        <tr>
+          <th>Link</th>
+          <td id="0recipeUrl"></td>
+          <td id="1recipeUrl"></td>
+          <td id="2recipeUrl"></td>
+          <td id="3recipeUrl"></td>
+          <td id="4recipeUrl"></td>
+          <td id="5recipeUrl"></td>
+          <td id="6recipeUrl"></td>
+        </tr>
+      </tbody>
+    </table>
 
     <div id="questionnaire" class="container">
       <h2 class="center">Search for Recipes</h2>
@@ -142,60 +191,21 @@
     </div>
 
 
-
-
-
-    <!-- WEEKLY PLANNER -->
-    <h2 class="center">Meal Planner</h2>
-    <br>
-    <table class="container highlight centered responsive-table">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Monday</th>
-          <th>Tuesday</th>
-          <th>Wednesday</th>
-          <th>Thursday</th>
-          <th>Friday</th>
-          <th>Saturday</th>
-          <th>Sunday</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>Breakfast</th>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>Lunch</th>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>Dinner</th>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-
-
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
       <div class="modal-content">
         <h4>Add to Meal Plan</h4>
         <p>recipe name</p>
-        <button class="day waves-effect waves-teal btn-small" data-day="Sunday">Sunday</button>
-        <button class="day waves-effect waves-teal btn-small">Monday</button>
-        <button class="day waves-effect waves-teal btn-small">Tuesday</button>
-        <button class="day waves-effect waves-teal btn-small">Wednesday</button>
-        <button class="day waves-effect waves-teal btn-small">Thursday</button>
-        <button class="day waves-effect waves-teal btn-small">Friday</button>
-        <button class="day waves-effect waves-teal btn-small">Saturday</button>
+        <button class="day waves-effect waves-teal btn-small" data-day="0">Monday</button>
+        <button class="day waves-effect waves-teal btn-small" data-day="1">Tuesday</button>
+        <button class="day waves-effect waves-teal btn-small" data-day="2">Wednesday</button>
+        <button class="day waves-effect waves-teal btn-small" data-day="3">Thursday</button>
+        <button class="day waves-effect waves-teal btn-small" data-day="4">Friday</button>
+        <button class="day waves-effect waves-teal btn-small" data-day="5">Saturday</button>
+        <button class="day waves-effect waves-teal btn-small" data-day="6">Sunday</button>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-red red btn-small">Agree</a>
+        <a href="#!" class="modal-close waves-effect waves-red red btn-small">Cancel</a>
       </div>
     </div>
   </main>
