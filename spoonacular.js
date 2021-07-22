@@ -12,7 +12,8 @@ $(document).ready(function(){
   $('.modal').modal();
 
 // let apiKey = '3aab51ba2fc442daa3d8eb0041b0be76'; // Ronald
-let apiKey = 'e0ab4916329e48aebf5b04da43be417f'; // Rich
+/* let apiKey = 'e0ab4916329e48aebf5b04da43be417f'; */ // Rich
+let apiKey = 'dfba0426536b466aaa28376e4b407fe8'; // Scott
 let recipe;
 $("#recipeButton").click(function () {
     let query = $('#searchRecipe').val();
@@ -51,15 +52,31 @@ $(".day").on("click", function(event) {
     let day = button.data("day")
     addRecipeToMealPlanner(recipe, day);
     $('.modal').modal('close');
+    getMealsFromLocalStorage();
 })
 
 function addRecipeToMealPlanner(recipe, day) {
     console.log(day, recipe.title)
+    localStorage.setItem(day, recipe.title);
+    $(`#${day}`).text(recipe.title);
 
     // add to local storage
     // day wil be the index of the day of the week (starting at 0 for Sunday)
     // mealPlan[day] = recipe
 }
+function getMealsFromLocalStorage() {
+    $('#monday').val(localStorage.getItem("0"));
+    $('#tuesday').val(localStorage.getItem("1"));
+    $('#2').val(localStorage.getItem("2"));
+    $('#3').val(localStorage.getItem("3"));
+    $('#4').val(localStorage.getItem("4"));
+    $('#5').val(localStorage.getItem("5"));
+    $('#6').val(localStorage.getItem("6"));
+}
+
+/* function setMealsFromLocalStorage(){
+    localStorage.setItem('0', "Chicken");
+} */
 
 function getRecipeDetails(recipeId) {
     let recipeEndpoint = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${apiKey}`
@@ -93,3 +110,13 @@ function getRecipeDetails(recipeId) {
             recipeDiv.append(recipeName, recipeInfo);
         })
 }
+/* var meal = $('#monday').text();
+if (meal) {
+    localStorage.setItem('meal', meal);
+} */
+
+/* localStorage.setItem('meal', meal);
+alert(localStorage.getItem('meal')); */
+
+getMealsFromLocalStorage();
+/* setMealsFromLocalStorage(); */
