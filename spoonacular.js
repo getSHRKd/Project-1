@@ -11,9 +11,9 @@ $(document).ready(function(){
 
   $('.modal').modal();
 
-// let apiKey = '3aab51ba2fc442daa3d8eb0041b0be76'; // Ronald
-/* let apiKey = 'e0ab4916329e48aebf5b04da43be417f'; */ // Rich
-let apiKey = 'dfba0426536b466aaa28376e4b407fe8'; // Scott
+ let apiKey = '3aab51ba2fc442daa3d8eb0041b0be76'; // Ronald
+/* let apiKey = 'e0ab4916329e48aebf5b04da43be417f';  */// Rich
+/* let apiKey = 'dfba0426536b466aaa28376e4b407fe8'; // Scott */
 let recipe;
 $("#recipeButton").click(function () {
     let query = $('#searchRecipe').val();
@@ -56,27 +56,96 @@ $(".day").on("click", function(event) {
 })
 
 function addRecipeToMealPlanner(recipe, day) {
-    console.log(day, recipe.title)
+    console.log(day, recipe.image)
     localStorage.setItem(day, recipe.title);
+    localStorage.setItem(day + 'image', recipe.image);
+    localStorage.setItem(day + "recipeUrl", recipe.sourceUrl);
+    let recipeImage = $('<img class="recipePhoto">');
+    recipeImage.attr('src', recipe.image);
+    let recipeLink = $('<a>')
+    recipeLink.attr('href', recipe.sourceUrl);
+    recipeLink.text('Click here for recipe');
+    recipeLink.attr('target', '_blank');
+    console.log(recipeLink);
     $(`#${day}`).text(recipe.title);
+    $(`#${day}image`).append(recipeImage);
+    $(`#${day}recipeUrl`).append(recipeLink);
+    console.log(recipeLink);
 
     // add to local storage
     // day wil be the index of the day of the week (starting at 0 for Sunday)
     // mealPlan[day] = recipe
 }
-function getMealsFromLocalStorage() {
-    $('#monday').val(localStorage.getItem("0"));
-    $('#tuesday').val(localStorage.getItem("1"));
-    $('#2').val(localStorage.getItem("2"));
-    $('#3').val(localStorage.getItem("3"));
-    $('#4').val(localStorage.getItem("4"));
-    $('#5').val(localStorage.getItem("5"));
-    $('#6').val(localStorage.getItem("6"));
-}
 
-/* function setMealsFromLocalStorage(){
-    localStorage.setItem('0', "Chicken");
-} */
+function getMealsFromLocalStorage() {
+    console.log("GETTING ITEMS");
+    $('#0').text(localStorage.getItem("0"));
+    $('#1').text(localStorage.getItem("1"));
+    $('#2').text(localStorage.getItem("2"));
+    $('#3').text(localStorage.getItem("3"));
+    $('#4').text(localStorage.getItem("4"));
+    $('#5').text(localStorage.getItem("5"));
+    $('#6').text(localStorage.getItem("6")); 
+
+    let recipeLink0 = $('<a>');
+    recipeLink0.attr('href', localStorage.getItem("0recipeUrl"));
+    recipeLink0.text('Click here for recipe');
+    recipeLink0.attr('target', '_blank');
+    $('#0recipeUrl').append(recipeLink0);
+    let recipeLink1 = $('<a>');
+    recipeLink1.attr('href', localStorage.getItem("1recipeUrl"));
+    recipeLink1.text('Click here for recipe');
+    recipeLink1.attr('target', '_blank');
+    $('#1recipeUrl').append(recipeLink1);
+    let recipeLink2 = $('<a>');
+    recipeLink2.attr('href', localStorage.getItem("2recipeUrl"));
+    recipeLink2.text('Click here for recipe');
+    recipeLink2.attr('target', '_blank');
+    $('#2recipeUrl').append(recipeLink2);
+    let recipeLink3 = $('<a>');
+    recipeLink3.attr('href', localStorage.getItem("3recipeUrl"));
+    recipeLink3.text('Click here for recipe');
+    recipeLink3.attr('target', '_blank');
+    $('#3recipeUrl').append(recipeLink0);
+    let recipeLink4 = $('<a>');
+    recipeLink4.attr('href', localStorage.getItem("4recipeUrl"));
+    recipeLink4.text('Click here for recipe');
+    recipeLink4.attr('target', '_blank');
+    $('#4recipeUrl').append(recipeLink4);
+    let recipeLink5 = $('<a>');
+    recipeLink5.attr('href', localStorage.getItem("5recipeUrl"));
+    recipeLink5.text('Click here for recipe');
+    recipeLink5.attr('target', '_blank');
+    $('#5recipeUrl').append(recipeLink5);
+    let recipeLink6 = $('<a>');
+    recipeLink6.attr('href', localStorage.getItem("6recipeUrl"));
+    recipeLink6.text('Click here for recipe');
+    recipeLink6.attr('target', '_blank');
+    $('#6recipeUrl').append(recipeLink6);
+
+    let recipeImage0 = $('<img class="recipePhoto">');
+    recipeImage0.attr('src', localStorage.getItem("0image"));
+    $('#0image').append(recipeImage0);
+    let recipeImage1 = $('<img class="recipePhoto">');
+    recipeImage1.attr('src', localStorage.getItem("1image"));
+    $('#1image').append(recipeImage1);
+    let recipeImage2 = $('<img class="recipePhoto">');
+    recipeImage2.attr('src', localStorage.getItem("2image"));
+    $('#2image').append(recipeImage2);
+    let recipeImage3 = $('<img class="recipePhoto">');
+    recipeImage3.attr('src', localStorage.getItem("3image"));
+    $('#3image').append(recipeImage3);
+    let recipeImage4 = $('<img class="recipePhoto">');
+    recipeImage4.attr('src', localStorage.getItem("4image"));
+    $('#4image').append(recipeImage4);
+    let recipeImage5 = $('<img class="recipePhoto">');
+    recipeImage5.attr('src', localStorage.getItem("5image"));
+    $('#5image').append(recipeImage5);
+    let recipeImage6 = $('<img class="recipePhoto">');
+    recipeImage6.attr('src', localStorage.getItem("6image"));
+    $('#6image').append(recipeImage6);
+}
+getMealsFromLocalStorage();
 
 function getRecipeDetails(recipeId) {
     let recipeEndpoint = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${apiKey}`
@@ -110,13 +179,3 @@ function getRecipeDetails(recipeId) {
             recipeDiv.append(recipeName, recipeInfo);
         })
 }
-/* var meal = $('#monday').text();
-if (meal) {
-    localStorage.setItem('meal', meal);
-} */
-
-/* localStorage.setItem('meal', meal);
-alert(localStorage.getItem('meal')); */
-
-getMealsFromLocalStorage();
-/* setMealsFromLocalStorage(); */
