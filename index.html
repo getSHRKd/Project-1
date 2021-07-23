@@ -85,23 +85,37 @@
         </tr>
       </tbody>
     </table>
+    <button onclick="clearMealPlan()" id="clear" class="btn-floating btn-large waves-effect waves-light red" type="submit" name="action">
+      <i class="material-icons right">not_interested</i>
+    </button>
 
     <div id="questionnaire" class="container">
       <h2 class="center">Search for Recipes</h2>
+      <!--IN OR OUT BUTTONS-->
+    <form action="#">
+      <h6>Eating in or out?</h6>
+        <button onclick="showRecipeSearch()" id="in" class="btn waves-effect waves-light" type="submit" name="action">In 
+          <i class="material-icons right">local_grocery_store</i>
+        </button><br>
+        <button onclick="showRestaurantSearch()" id="out" class="btn waves-effect waves-light" type="submit" name="action">Out
+          <i class="material-icons right">local_dining</i>
+        </button>
+    </form> <br>
       <!-- RADIO CHECKLIST -->
-      <form action="#">
+     <!--  <form action="#">
         <h6>Eating in or out?</h6>
         <label for="home">
-          <input id="home" name="inorout" type="radio" />
+          <input id="home" name="inorout" type="radio" onclick="showRecipeSearch()"/>
           <span>Cooking at Home</span>
         </label><br>
         <label for="restaurant">
-          <input id="restaurant" name="inorout" type="radio" />
+          <input id="restaurant" name="inorout" type="radio" onclick="showRestaurantSearch()"/>
           <span>Let's Go Out</span>
         </label>
-      </form> <br>
+      </form> <br> -->
       <!-- 2 SEARCH BARS -->
       <form>
+        <div id="recipeSearch">
         <h6>Search for recipes to cook at home...</h6>
         <div class="input-field">
           <input id="searchRecipe" type="search" placeholder="            Search keywords..." required>
@@ -110,9 +124,10 @@
         </div>
         <a class="waves-effect waves-light btn" id="recipeButton">Search</a>
         <a class="waves-effect waves-light btn addToMealPlan" >Add To Meal Plan</a>
+        </div>
       </form>
 
-      <form id="searchForm">
+      <form id="restaurantSearch">
         <h6>Or find a restaurant near you...</h6>
         <div class="input-field">
           <input id="search searchCity" type="search" placeholder="            Search by city..." required>
@@ -121,7 +136,7 @@
         </div>
       </form>
 
-      <div class="row">
+      <div id="restaurantSearchByCity" class="row">
         <form action="" class="col s12">
           <div class="input-field col s6">
             <input id="city-input" type="text" class="validate">
