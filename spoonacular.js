@@ -7,52 +7,29 @@ $(document).ready(function(){
 
   $('.modal').modal();
 
- let apiKey = '3aab51ba2fc442daa3d8eb0041b0be76'; // Ronald
-/* let apiKey = 'e0ab4916329e48aebf5b04da43be417f';  */// Rich
+/* let apiKey = '3aab51ba2fc442daa3d8eb0041b0be76'; // Ronald*/
+ let apiKey = 'e0ab4916329e48aebf5b04da43be417f';  // Rich
 /* let apiKey = 'dfba0426536b466aaa28376e4b407fe8'; // Scott */
-// HIDE AND SHOW SEARCH BARS
-function hideSearch() {
-  var x = document.getElementById('recipeSearch');
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-  var x = document.getElementById('restaurantSearch');
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-  var x = document.getElementById('restaurantSearchByCity');
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-hideSearch();
 
-function showRecipeSearch() {
+$("#in").click(function() {
   document.getElementById("recipeSearch").style.display = "block";
   document.getElementById("restaurantSearch").style.display = "none";
   document.getElementById("restaurantSearchByCity").style.display = "none";
-}
-function showRestaurantSearch() {
+});
+$("#out").click(function() {
   document.getElementById("restaurantSearch").style.display = "block";
   document.getElementById("restaurantSearchByCity").style.display = "block";
   document.getElementById("recipeSearch").style.display = "none";
-}
+});
+
 // SPOONACULAR RECIPE API 
 let recipe;
 $("#recipeButton").click(function () {
     let query = $('#searchRecipe').val();
     let checkedCuisines = M.FormSelect.getInstance(document.querySelector(".cuisineChoices")).getSelectedValues();
     let cuisines = checkedCuisines.toString();
-    let checkedDiet = M.FormSelect.getInstance(document.querySelector(".dietChoices")).getSelectedValues();
-    let diet = checkedDiet.toString();
-    let endpoint = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${query}&cuisine=${cuisines}&diet=${diet}`
-
+    let endpoint = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${query}&cuisine=${cuisines}`
+    $("#recipeDisplay").html('')
 
     $.ajax({
         url: endpoint,
@@ -100,8 +77,13 @@ function getMealsFromLocalStorage() {
         $(`#${dayNumber}`).text(localStorage.getItem(dayNumber));
         let recipeLink = $('<a>');
         recipeLink.attr('href', localStorage.getItem(dayNumber + "recipeUrl"));
-        recipeLink.text('Click here for recipe');
         recipeLink.attr('target', '_blank');
+        
+        if(localStorage.getItem(dayNumber + "recipeUrl") === null) {
+          recipeLink.text('');
+        } else {
+          recipeLink.text('Click here for recipe');
+        }
         $(`#${dayNumber}recipeUrl`).empty().append(recipeLink);
         let recipeImage = $('<img class="recipePhoto">');
         recipeImage.attr('src', localStorage.getItem(dayNumber + "image"));
