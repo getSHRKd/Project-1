@@ -84,35 +84,22 @@
         </tr>
       </tbody>
     </table>
-    <button onclick="clearMealPlan()" id="clear" class="btn-floating btn-large waves-effect waves-light red" type="submit" name="action">
-      <i class="material-icons right">not_interested</i>
+    <button onclick="clearMealPlan()" id="clear" class="btn btn-large waves-effect waves-light red" type="submit"
+      name="action">
+      <i class="material-icons right">not_interested</i>Clear Planner
     </button>
 
     <div id="questionnaire" class="container">
-      <h2 class="center">Search for Recipes</h2>
+      <h2 class="center">Search for Recipes or Restaurants</h2>
       <!--IN OR OUT BUTTONS-->
-    <form action="#">
       <h6>Eating in or out?</h6>
-        <button onclick="showRecipeSearch()" id="in" class="btn waves-effect waves-light" type="submit" name="action">In 
+        <button id="in" class="btn waves-effect waves-light" name="action">In 
           <i class="material-icons right">local_grocery_store</i>
         </button><br>
-        <button onclick="showRestaurantSearch()" id="out" class="btn waves-effect waves-light" type="submit" name="action">Out
+        <button id="out" class="btn waves-effect waves-light" name="action">Out
           <i class="material-icons right">local_dining</i>
         </button>
-    </form> <br>
-      <!-- RADIO CHECKLIST -->
-     <!--  <form action="#">
-        <h6>Eating in or out?</h6>
-        <label for="home">
-          <input id="home" name="inorout" type="radio" onclick="showRecipeSearch()"/>
-          <span>Cooking at Home</span>
-        </label><br>
-        <label for="restaurant">
-          <input id="restaurant" name="inorout" type="radio" onclick="showRestaurantSearch()"/>
-          <span>Let's Go Out</span>
-        </label>
-      </form> <br> -->
-      <!-- 2 SEARCH BARS -->
+      
       <form>
         <div id="recipeSearch">
         <h6>Search for recipes to cook at home...</h6>
@@ -125,14 +112,14 @@
         </div>
       </form>
 
-      <!-- <form id="restaurantSearch">
+      <form id="restaurantSearch">
         <h6>Find a restaurant near you...</h6>
         <div class="input-field">
-          <input id="search searchCity" type="search" required>
+          <input id="search" type="search" required>
           <label class="label-icon " for="search"><i class="material-icons">search</i></label>
           <i class="material-icons">close</i>
         </div>
-      </form> -->
+      </form>
 
       <div id="restaurantSearchByCity">
         <h6>Enter a city to find a restaurant near you...</h6>
@@ -143,13 +130,6 @@
           </div>
         </form>
       </div>
-
-      <!-- Restaurants Displayed Below -->
-      <section>
-        <!-- <div class="container"></div> -->
-        <div class="row col s12" id="recipeDisplay"></div>
-      </section>
-      <br>
 
       <!-- DROPDOWN W/ CUISINE & DIETARY RESTRICTIONS -->
       <div class="input-field col 4">
@@ -173,26 +153,17 @@
             <option value="thai">Thai</option>
           </optgroup>
         </select>
-        <h6>Select any dietary restrictions to be accommodated below.</h6>
-        <select multiple class="dietChoices">
-          <optgroup label="Dietary Restrictions">
-            <option value="" disabled selected>Choose only one here!</option>
-            <option value="glutenFree">Gluten Free</option>
-            <option value="ketogenic">Ketogenic</option>
-            <option value="vegetarian">Vegetarian</option>
-            <option value="vegan">Vegan</option>
-            <option value="pescetarian">Pescetarian</option>
-            <option value="paleo">Paleo</option>
-          </optgroup>
-        </select>
       </div>
+      <!-- Restaurants Displayed Below -->
+      <section>
+        <div class="row col s12" id="recipeDisplay"></div>
+      </section>
     </div>
 
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
       <div class="modal-content">
         <h4>Add to Meal Plan</h4>
-        <p>recipe name</p>
         <button class="day waves-effect waves-teal btn-small" data-day="0">Monday</button>
         <button class="day waves-effect waves-teal btn-small" data-day="1">Tuesday</button>
         <button class="day waves-effect waves-teal btn-small" data-day="2">Wednesday</button>
@@ -218,7 +189,6 @@
   src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyDHAbDYEeM1ZUXXiHPI9RmpU-UDjlEZh1s&libraries=places">
 </script>
   <script src="spoonacular.js"></script>
-  <script src="scriptHD.js"></script>
 
 </body>
 

@@ -25,3 +25,29 @@
 .nav-text {
     margin-left: 4em;
 }
+
+#in {
+    min-width: 100px;
+    margin: 1em;
+}
+
+#out {
+    min-width: 100px;
+    margin: 1em;
+}
+
+#recipeSearch {
+    display: none;
+}
+
+#restaurantSearch {
+    display: none;
+}
+
+#restaurantSearchByCity {
+    display: none;
+}
+
+th {
+    width: 14.28%;
+}
