@@ -10,6 +10,7 @@ $(document).ready(function(){
  let apiKey = '3aab51ba2fc442daa3d8eb0041b0be76'; // Ronald
 /* let apiKey = 'e0ab4916329e48aebf5b04da43be417f';  */// Rich
 /* let apiKey = 'dfba0426536b466aaa28376e4b407fe8'; // Scott */
+let api2 = "AIzaSyDHAbDYEeM1ZUXXiHPI9RmpU-UDjlEZh1s"; //Google Places API
 // HIDE AND SHOW SEARCH BARS
 function hideSearch() {
   var x = document.getElementById('recipeSearch');
@@ -66,6 +67,27 @@ $("#recipeButton").click(function () {
         }
     })
 });
+
+//GOOGLE PLACES RESTAURANT API
+let restaurant;
+$("#cityButton").click(function () {
+	console.log("button clicked")
+	let cityQuery = $("#searchCity").val();
+	let endpoint2 = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+${cityQuery}&fields=name,rating,photos,formatted_address&key=${api2}`
+
+	$.ajax({
+		url: endpoint2,
+		dataType: "json",
+		success: function (result) {
+			console.log(result);
+            for (i = 0; i < result.results.length; i++) {
+            getRestaurantDetails(result.results[i].id)
+				console.log(data.name)
+            }
+		}
+	})
+});
+
 // ADD TO MEAL PLAN MODAL
 $("main").on("click", ".addToMealPlan", function(event){
     event.preventDefault();
