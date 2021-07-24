@@ -43,8 +43,28 @@ $("#recipeButton").click(function () {
         }
     })
 });
+
+//GOOGLE PLACES RESTAURANT API
+let restaurant;
+$("#cityButton").click(function () {
+	console.log("button clicked")
+	let cityQuery = $("#searchCity").val();
+	let endpoint2 = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+${cityQuery}&fields=name,rating,photos,formatted_address&key=${api2}`
+
+	$.ajax({
+		url: endpoint2,
+		dataType: "json",
+		success: function (result) {
+			console.log(result);
+            for (i = 0; i < 10; i++) {
+            getRestaurantDetails(result.results[i].id)
+            }
+		    }
+	  })
+});
+
 // ADD TO MEAL PLAN MODAL
-$("main").on("click", ".addToMealPlan", function(event){
+$("main").on("click", ".addToMealPlan", function(event) {
     event.preventDefault();
     event.stopPropagation();
     console.log("ADD TO MEAL PLAN")
@@ -53,6 +73,18 @@ $("main").on("click", ".addToMealPlan", function(event){
     console.log(recipe);
     $('.modal').modal('open');
 });
+
+$("main").on("click", ".addToMealPlan", function(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  console.log("ADD TO MEAL PLAN")
+  let button = $(event.target);
+  restaurant = button.data("restaurant")
+  console.log(restaurant);
+  $('.modal').modal('open');
+});
+
+
 // CLICK FUNCTION TO ADD MEAL TO MEAL PLAN
 $(".day").on("click", function(event) {
     console.log("CLICKED DAY")
@@ -62,12 +94,28 @@ $(".day").on("click", function(event) {
     $('.modal').modal('close');
 })
 
+$(".day").on("click", function(event) {
+  console.log("CLICKED DAY")
+  let button = $(event.target);
+  let day = button.data("day")
+  addRestaurantToMealPlanner(restaurant, day);
+  $('.modal').modal('close');
+})
+
 function addRecipeToMealPlanner(recipe, day) {
     console.log(day, recipe.image)
     localStorage.setItem(day, recipe.title);
     localStorage.setItem(day + 'image', recipe.image);
     localStorage.setItem(day + "recipeUrl", recipe.sourceUrl);
     getMealsFromLocalStorage()
+}
+
+function addRestaurantToMealPlanner(restaurant, day) {
+  console.log(day, restaurant.image)
+  localStorage.setItem(day, restaurant.title);
+  localStorage.setItem(day + 'image', recipe.image);
+  localStorage.setItem(day + "recipeUrl", recipe.sourceUrl);
+  getMealsFromLocalStorage()
 }
 // SAVING MEAL PLAN TO LOCAL STORAGE
 function getMealsFromLocalStorage() {
@@ -130,3 +178,6 @@ function getRecipeDetails(recipeId) {
             recipeDiv.append(recipeName, recipeInfo);
         })
 }
+
+
+//business_status: ""
