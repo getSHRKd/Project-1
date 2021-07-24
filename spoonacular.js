@@ -13,19 +13,19 @@ $(document).ready(function(){
 let api2 = "AIzaSyDHAbDYEeM1ZUXXiHPI9RmpU-UDjlEZh1s"; //Google Places API
 // HIDE AND SHOW SEARCH BARS
 function hideSearch() {
-  var x = document.getElementById('recipeSearch');
+  var x = document.getElementById("recipeSearch");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
     x.style.display = "none";
   }
-  var x = document.getElementById('restaurantSearch');
+  var x = document.getElementById("restaurantSearch");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
     x.style.display = "none";
   }
-  var x = document.getElementById('restaurantSearchByCity');
+  var x = document.getElementById("restaurantSearchByCity");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
@@ -80,16 +80,15 @@ $("#cityButton").click(function () {
 		dataType: "json",
 		success: function (result) {
 			console.log(result);
-            for (i = 0; i < result.results.length; i++) {
+            for (i = 0; i < 10; i++) {
             getRestaurantDetails(result.results[i].id)
-				console.log(data.name)
             }
-		}
-	})
+		    }
+	  })
 });
 
 // ADD TO MEAL PLAN MODAL
-$("main").on("click", ".addToMealPlan", function(event){
+$("main").on("click", ".addToMealPlan", function(event) {
     event.preventDefault();
     event.stopPropagation();
     console.log("ADD TO MEAL PLAN")
@@ -98,6 +97,18 @@ $("main").on("click", ".addToMealPlan", function(event){
     console.log(recipe);
     $('.modal').modal('open');
 });
+
+$("main").on("click", ".addToMealPlan", function(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  console.log("ADD TO MEAL PLAN")
+  let button = $(event.target);
+  restaurant = button.data("restaurant")
+  console.log(restaurant);
+  $('.modal').modal('open');
+});
+
+
 // CLICK FUNCTION TO ADD MEAL TO MEAL PLAN
 $(".day").on("click", function(event) {
     console.log("CLICKED DAY")
@@ -107,12 +118,28 @@ $(".day").on("click", function(event) {
     $('.modal').modal('close');
 })
 
+$(".day").on("click", function(event) {
+  console.log("CLICKED DAY")
+  let button = $(event.target);
+  let day = button.data("day")
+  addRestaurantToMealPlanner(restaurant, day);
+  $('.modal').modal('close');
+})
+
 function addRecipeToMealPlanner(recipe, day) {
     console.log(day, recipe.image)
     localStorage.setItem(day, recipe.title);
     localStorage.setItem(day + 'image', recipe.image);
     localStorage.setItem(day + "recipeUrl", recipe.sourceUrl);
     getMealsFromLocalStorage()
+}
+
+function addRestaurantToMealPlanner(restaurant, day) {
+  console.log(day, restaurant.image)
+  localStorage.setItem(day, restaurant.title);
+  localStorage.setItem(day + 'image', recipe.image);
+  localStorage.setItem(day + "recipeUrl", recipe.sourceUrl);
+  getMealsFromLocalStorage()
 }
 // SAVING MEAL PLAN TO LOCAL STORAGE
 function getMealsFromLocalStorage() {
@@ -170,3 +197,6 @@ function getRecipeDetails(recipeId) {
             recipeDiv.append(recipeName, recipeInfo);
         })
 }
+
+
+//business_status: ""
