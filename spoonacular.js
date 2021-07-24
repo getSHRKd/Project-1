@@ -11,35 +11,38 @@ $(document).ready(function(){
 /* let apiKey = 'e0ab4916329e48aebf5b04da43be417f';  */// Rich
 /* let apiKey = 'dfba0426536b466aaa28376e4b407fe8'; // Scott */
 // HIDE AND SHOW SEARCH BARS
-    function hideSearch() {
-        var x = document.getElementById('recipeSearch');
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        }
-        var x = document.getElementById('restaurantSearch');
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        }
-        var x = document.getElementById('restaurantSearchByCity');
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        }
-      }
-      hideSearch();
+function hideSearch() {
+  var x = document.getElementById('recipeSearch');
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  var x = document.getElementById('restaurantSearch');
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  var x = document.getElementById('restaurantSearchByCity');
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+hideSearch();
 
-    function showRecipeSearch() {
-       document.getElementById("recipeSearch").style.display = "block";
-    }
-    function showRestaurantSearch() {
-       document.getElementById("restaurantSearch").style.display = "block";
-       document.getElementById("restaurantSearchByCity").style.display = "block";
-    }
+function showRecipeSearch() {
+  document.getElementById("recipeSearch").style.display = "block";
+  document.getElementById("restaurantSearch").style.display = "none";
+  document.getElementById("restaurantSearchByCity").style.display = "none";
+}
+function showRestaurantSearch() {
+  document.getElementById("restaurantSearch").style.display = "block";
+  document.getElementById("restaurantSearchByCity").style.display = "block";
+  document.getElementById("recipeSearch").style.display = "none";
+}
 // SPOONACULAR RECIPE API 
 let recipe;
 $("#recipeButton").click(function () {
@@ -102,6 +105,7 @@ function getMealsFromLocalStorage() {
         $(`#${dayNumber}recipeUrl`).empty().append(recipeLink);
         let recipeImage = $('<img class="recipePhoto">');
         recipeImage.attr('src', localStorage.getItem(dayNumber + "image"));
+        $(`#${dayNumber}image`).html('')
         $(`#${dayNumber}image`).append(recipeImage);
     }
 }

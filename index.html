@@ -17,16 +17,15 @@
   <header>
     <nav class="nav-extended">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo"><i class="material-icons left">ramen_dining</i><i
-            class="material-icons right">fastfood</i>In or Out?</a>
+        <div class="brand-logo"><i class="material-icons left">ramen_dining</i><i
+            class="material-icons right">fastfood</i>In or Out?</div>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="#questionnaire">Search Recipes & Restaurants</a></li>
           <li><a href="#mealPlanner">Weekly Meal Planner</a></li>
         </ul>
       </div>
       <div class="nav-content">
-        <a><span class="nav-text">A Weekly Meal Planner</span>
-        </a>
+        <span class="nav-text">A Weekly Meal Planner</span>
       </div>
       </nav>
   </header>
@@ -123,12 +122,11 @@
           <i class="material-icons">close</i>
         </div>
         <a class="waves-effect waves-light btn" id="recipeButton">Search</a>
-        <a class="waves-effect waves-light btn addToMealPlan" >Add To Meal Plan</a>
         </div>
       </form>
 
       <form id="restaurantSearch">
-        <h6>Or find a restaurant near you...</h6>
+        <h6>Find a restaurant near you...</h6>
         <div class="input-field">
           <input id="search searchCity" type="search" placeholder="            Search by city..." required>
           <label class="label-icon " for="search"><i class="material-icons">search</i></label>
@@ -143,19 +141,14 @@
             <label for="city-input">Enter a city to find a restaurant near you!</label>
           </div>
         </form>
-
       </div>
+
       <!-- Restaurants Displayed Below -->
       <section>
         <!-- <div class="container"></div> -->
         <div class="row col s12" id="recipeDisplay"></div>
-
       </section>
       <br>
-
-
-
-
 
       <!-- DROPDOWN W/ CUISINE & DIETARY RESTRICTIONS -->
       <div class="input-field col 4">
@@ -192,19 +185,7 @@
           </optgroup>
         </select>
       </div>
-    </div> <br><br><br>
-
-
-    <!-- Default with no input (automatically generated)  -->
-    <div class="container center">
-      <div class="chips chips-placeholders">
-        <h6>Enter your favorite cuisines for your recipe here! Cuisine options: African, American, Chinese, European,
-          Indian, Italian, Japanese, Jewish, Korean</h6>Search here...
-      </div>
-      <!-- Customizable input  -->
-
     </div>
-
 
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
@@ -231,25 +212,10 @@
 
   <script src="scriptHD.js"></script>
 
-  <!-- // var instances = M.Chips.init(elems, options);
-      // });
-      // var instance = M.Chips.getInstance(elem); -->
-
   <!-- <script src="script.js"></script> -->
 
   <script src="spoonacular.js"></script>
-  <script>
-      // $(document).ready(function(){
-      //   $('select').formSelect();
-      // });
-      // M.AutoInit()
-      // $(".dropdown-trigger").dropdown();
-      // document.addEventListener('DOMContentLoaded', function() {
-      // var elems = document.querySelectorAll('.chips');
-      // var instances = M.Chips.init(elems, options);
-      // });
-      // var instance = M.Chips.getInstance(elem);
-  </script>
+
 </body>
 
 </html>
