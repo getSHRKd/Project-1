@@ -7,8 +7,8 @@ $(document).ready(function(){
 
   $('.modal').modal();
 
-/* let apiKey = '3aab51ba2fc442daa3d8eb0041b0be76'; // Ronald*/
- let apiKey = 'e0ab4916329e48aebf5b04da43be417f';  // Rich
+ let apiKey = '3aab51ba2fc442daa3d8eb0041b0be76'; // Ronald*/
+ // Rich
 /* let apiKey = 'dfba0426536b466aaa28376e4b407fe8'; // Scott */
 
 $("#in").click(function() {
